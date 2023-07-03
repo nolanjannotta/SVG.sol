@@ -14,7 +14,6 @@ contract SVGConsumer {
         svg.setAttribute("width", "2000");
         svg.setAttribute("height", "1000");
 
-        // Element memory circle;
         Element memory rect;
         rect.createElement("rect");
         rect.setAttribute("width", "2000");
@@ -24,7 +23,6 @@ contract SVGConsumer {
         rect.setAttribute("fill", "white");
         svg.appendChild(rect);
 
-        // svg.init("<svg width='2000' height='1000' xmlns='http://www.w3.org/2000/svg'>");
 
         
 
@@ -50,20 +48,17 @@ contract SVGConsumer {
                 rect.setAttribute("height", _toString(r));
                 rect.setAttribute("fill", fill);
                 rect.setAttribute("z-index", "1000");
-                // rect.setAttribute("rx", );
                 svg.appendChild(rect);
-
-                // return svg.draw();
                 
             }
             else {
                  Element memory circle;
-            circle.createElement("circle");
-            circle.setAttribute("cx", _toString(cx));
-            circle.setAttribute("cy",_toString(cy));
-            circle.setAttribute("r", _toString(r));
-            circle.setAttribute("fill", fill);
-            svg.appendChild(circle);
+                circle.createElement("circle");
+                circle.setAttribute("cx", _toString(cx));
+                circle.setAttribute("cy",_toString(cy));
+                circle.setAttribute("r", _toString(r));
+                circle.setAttribute("fill", fill);
+                svg.appendChild(circle);
 
             }
 
@@ -120,18 +115,6 @@ contract SVGConsumer {
             mstore(str, length)
         }
     }
-
-    /**
-     * @dev For more efficient reverts.
-     */
-    function _revert(bytes4 errorSelector) internal pure {
-        assembly {
-            mstore(0x00, errorSelector)
-            revert(0x00, 0x04)
-        }
-    }
-
-
 
 
 }
