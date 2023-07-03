@@ -1,7 +1,7 @@
 pragma solidity ^0.8.13;
 
 
-import {Element} from './Element.sol';
+import {Element} from './SVG.sol';
 
 contract SVGConsumer {
 
