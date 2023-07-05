@@ -4,11 +4,11 @@ pragma solidity ^0.8.13;
 
 
 function rotate(int a, uint b, uint c) pure returns(string memory) {
-        return string(abi.encodePacked("rotate(", a<0 ? "-" : "", _toString(uint(a * -1)), " ", _toString(b), " ", _toString(c), ") "));
+        return string(abi.encodePacked("rotate(", a<0 ? "-" : "", _toString(uint(a<0 ? a * -1 : a)), " ", _toString(b), " ", _toString(c), ") "));
     }
 
 function skewX(int a) pure returns(string memory) {
-        return string(abi.encodePacked("skewX(", a<0 ? "-" : "", _toString(uint(a * -1)), ") "));
+        return string(abi.encodePacked("skewX(", a<0 ? "-" : "", _toString(uint(a<0 ? a * -1 : a)), ") "));
     }
 
 
@@ -18,7 +18,7 @@ function rgb(uint r, uint g, uint b) pure returns (string memory) {
 
 
 function skewY(int a) pure returns(string memory) {
-     return string(abi.encodePacked("skewY(", a<0 ? "-" : "", _toString(uint(a * -1)), ") "));
+     return string(abi.encodePacked("skewY(", a<0 ? "-" : "", _toString(uint(a<0 ? a * -1 : a)), ") "));
 }
 
 

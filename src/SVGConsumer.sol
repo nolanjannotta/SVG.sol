@@ -129,6 +129,10 @@ contract SVGConsumer {
 
     }
 
+    function skewTest(int a) public pure returns (string memory) {
+        return utils.skewX(a);
+    }
+
 
     function rect(uint seed) internal pure returns(Element memory rect) {
         uint width = (_hash(seed + 1) % 900) + 100;
@@ -169,8 +173,8 @@ contract SVGConsumer {
         Element memory g;
         g.createElement("g");
 
-        int _rotate = int(_hash(transformSeed) % 5) - 10;
-        int _skew = int(_hash(transformSeed+1) % 5) - 10;
+        int _rotate = int(_hash(transformSeed) % 15) - 7;
+        int _skew = int(_hash(transformSeed+1) % 15) - 7;
 
         string memory transform = string(abi.encodePacked(utils.rotate(_rotate,500,500), utils.skewX(_skew)));
         g.setAttribute("transform", transform); // add random rotate and skew amounts
@@ -194,7 +198,7 @@ contract SVGConsumer {
         g.appendChild(nextObject);
         numObjects --;
 
-        nextG = recursion(transformSeed, seed + 20, numObjects);
+        nextG = recursion(transformSeed + 1, seed + 20, numObjects);
 
         g.appendChild(nextG);
 

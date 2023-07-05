@@ -19,8 +19,12 @@ contract SVGTest is Test {
 
 
     function testArt() public {
-        string memory svg = consumer.art(1,3542);
+        string memory svg = consumer.art(3,746);
         vm.writeLine("art.svg", svg);
+    }
+
+    function testSkew() public {
+        console.log(consumer.skewTest(0));
     }
 
 
