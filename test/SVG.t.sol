@@ -17,4 +17,11 @@ contract SVGTest is Test {
         vm.writeLine("testOutput.svg", svg);
     }
 
+
+    function testArt() public {
+        string memory svg = consumer.art(1,9875);
+        vm.writeLine("testOutput.svg", svg);
+    }
+
+
 }

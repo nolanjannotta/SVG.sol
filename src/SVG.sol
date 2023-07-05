@@ -1,9 +1,11 @@
 pragma solidity ^0.8.13;
 
+import * as utils from './utils.sol';
+
 struct Element {
     string name;
-    string attributes;
-    string children;
+    bytes attributes;
+    bytes children;
 }
 
 
@@ -11,12 +13,16 @@ struct Element {
 
 
 
-function renderElement(Element memory self) pure returns(string memory) {
-    return string(abi.encodePacked("<", self.name, " ", self.attributes, ">", self.children, "</", self.name, ">"));
+function renderElement(Element memory self) pure returns(bytes memory) {
+    if(bytes(self.name).length == 0) {
+        return bytes("");
+    }
+
+    return abi.encodePacked("<", self.name, " ", self.attributes, ">", self.children, "</", self.name, ">");
 }
 
 function appendChild(Element memory self, Element memory child) pure returns (Element memory) {    
-    self.children = string(abi.encodePacked(self.children, child.renderElement()));
+    self.children = abi.encodePacked(self.children, child.renderElement());
     // child.clear();
     return self;
 
@@ -30,7 +36,7 @@ function createElement(Element memory self, string memory name) pure returns(Ele
 }
 
 function setAttribute(Element memory self, string memory attribute, string memory value) pure returns (Element memory) {
-    self.attributes = string(abi.encodePacked(self.attributes, attribute, '="', value, '" '));
+    self.attributes = abi.encodePacked(self.attributes, attribute, '="', value, '" ');
     return self;
 
     
@@ -46,8 +52,12 @@ function clear(Element memory self) pure returns(Element memory) {
 }
 
 function draw(Element memory self) pure returns(string memory) {
-    return renderElement(self);
+    return string(renderElement(self));
 }
+
+
+
+
 
 
 
