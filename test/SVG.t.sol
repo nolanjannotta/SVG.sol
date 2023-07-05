@@ -14,13 +14,13 @@ contract SVGTest is Test {
 
     function testRandomDots() public {
         string memory svg = consumer.randomDots(768769896, 900);
-        vm.writeLine("testOutput.svg", svg);
+        vm.writeLine("random_dots.svg", svg);
     }
 
 
     function testArt() public {
         string memory svg = consumer.art(1,9875);
-        vm.writeLine("testOutput.svg", svg);
+        vm.writeLine("art.svg", svg);
     }
 
 
