@@ -19,7 +19,7 @@ contract SVGTest is Test {
 
 
     function testArt() public {
-        string memory svg = consumer.art(1,9875);
+        string memory svg = consumer.art(1,3542);
         vm.writeLine("art.svg", svg);
     }
 
