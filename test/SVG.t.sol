@@ -23,9 +23,6 @@ contract SVGTest is Test {
         vm.writeLine("art.svg", svg);
     }
 
-    function testSkew() public {
-        console.log(consumer.skewTest(0));
-    }
 
 
 }
