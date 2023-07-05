@@ -1,1 +1,1 @@
-ultra minimalist svg library in solidity. taken lots of inspo from javascript
+ultra minimalist svg library in solidity.
