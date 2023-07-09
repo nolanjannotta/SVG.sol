@@ -26,7 +26,7 @@ contract SVGTest is Test {
     function testClock() public {
         vm.warp(1688877108); // timestamp of 2023 july 8 6:08 pm
         // we pass a -7 for west coast time
-        string memory svg = svgExample.clock(-10);
+        string memory svg = svgExample.clock(-7);
         vm.writeLine("clock.svg", svg);
     }
 
