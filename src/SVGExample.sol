@@ -162,6 +162,11 @@ contract SVGExample {
         return g;
     }
 
+
+
+
+
+
     function clock(int256 timeZoneOffset) public view returns (string memory) {
         uint256 timestamp = uint256(int256(block.timestamp) + timeZoneOffset * 1 hours);
         uint256 hour = DateTime.getHour(timestamp);
@@ -234,9 +239,9 @@ contract SVGExample {
         clockHand.setAttribute("x1", "500");
         clockHand.setAttribute("y1", "520");
         clockHand.setAttribute("x2", "500");
-        clockHand.setAttribute("y2", "250");
+        clockHand.setAttribute("y2", "270");
         clockHand.setAttribute("stroke", utils.rgb(29, 29, 29));
-        clockHand.setAttribute("stroke-width", "8px");
+        clockHand.setAttribute("stroke-width", "12px");
         clockHand.setAttribute("stroke-linecap", "round");
 
         angle = int256(30 * hour);

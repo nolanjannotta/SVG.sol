@@ -25,17 +25,16 @@ contract SVGTest is Test {
 
     function testClock() public {
         vm.warp(1688877108); // timestamp of 2023 july 8 6:08 pm
-        string memory svg = svgExample.clock(-7);
+        // we pass a -7 for west coast time
+        string memory svg = svgExample.clock(-10);
         vm.writeLine("clock.svg", svg);
     }
 
     function testDateTime() public {
         vm.warp(1688875650); // timestamp of 2023 july 8 6:08 pm
+
         uint256 timestamp = uint256(int256(block.timestamp) + (-7 hours));
-        // (uint year, uint month, uint day, uint hour, uint minute, uint second) = DateTime.timestampToDateTime(timestamp);
-        // hour = hour <=12 ? hour : hour - 12;
-        // uint dayOfWeek = DateTime.getDayOfWeek(timestamp);
-        // uint timestamp = uint(int(block.timestamp) + timeZoneOffset);
+
         uint256 hour = DateTime.getHour(timestamp);
         uint256 minute = DateTime.getMinute(timestamp);
         uint256 second = DateTime.getHour(timestamp);
